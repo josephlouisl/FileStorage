@@ -18,7 +18,19 @@ python app.py
 ```
 curl -F "file=@PATH_TO_FILE" http://127.0.0.1:8888/upload -X PUT
 ```
+```javascript
+{
+  "key": KEY
+ }
+```
 #### Get file 
 ```
-curl  http://127.0.0.1:8888/TOKEN
+curl  http://127.0.0.1:8888/KEY
+```
+#### Response
+```javascript
+{
+  "file_name": FILE_NAME,
+  "file_content": FILE_CONTENT
+ }
 ```
