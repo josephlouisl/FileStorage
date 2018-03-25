@@ -14,7 +14,7 @@ class MongoWrapper():
         mongo_port = settings.MONGODB['port']
         db_name = settings.MONGODB['db']
         mongo_client = motor.motor_tornado.MotorClient('mongodb://%s:%s@%s:%s' % (username, password, mongo_host, mongo_port))
-        self.db = mongo_client.db_name
+        self.db = mongo_client[db_name]
 
     async def get_file_by_id(self, id):
         files = self.db.files

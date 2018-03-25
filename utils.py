@@ -15,7 +15,6 @@ class AWSWrapper:
     def __init__(self, key, loop, file_name):
         self.session = aiobotocore.get_session()
         self.key = '{}/{}'.format(key, file_name)
-        #self.key = key + file_name
 
     async def upload_file(self, file_content):
         async with self.session.create_client('s3', region_name='eu-west-3',
@@ -24,7 +23,6 @@ class AWSWrapper:
             resp = await client.put_object(Bucket=settings.AWS_BUCKET,
                                             Key=self.key,
                                             Body=file_content)
-            print(resp)
             return resp
 
     async def get_file(self):
